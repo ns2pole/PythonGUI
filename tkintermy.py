@@ -1,6 +1,8 @@
 import tkinter as tk
 import sqlite3
 from openpyxl import load_workbook
+from tkinter import messagebox
+
 
 class MainWindow(tk.Frame):
     def __init__(self, parent):
@@ -11,11 +13,11 @@ class MainWindow(tk.Frame):
         self.label = tk.Label(self, text="ぼたんを押してね")
         self.label.pack(pady=10)
 
-        self.button = tk.Button(self, text="Say Hello", command=self.rundb)
+        self.button = tk.Button(self, text="Say Hello", command=self.say_hello)
         self.button.pack()
 
     def say_hello(self):
-        self.label.config(text="Hello!")
+        messagebox.showinfo("Hello Popup", "Helloooo!")
 
     def rundb(self):
         conn = sqlite3.connect("Cosmos.db", isolation_level=None)
